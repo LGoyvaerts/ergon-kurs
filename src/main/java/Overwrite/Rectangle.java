@@ -43,4 +43,8 @@ public class Rectangle extends Shape {
         return länge * breite;
     }
 
+    @Override
+    public String toString() {
+        return "Rectangle[länge:" + länge + " | breite: " + breite + "]";
+    }
 }

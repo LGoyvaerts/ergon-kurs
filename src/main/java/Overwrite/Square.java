@@ -24,4 +24,9 @@ public class Square extends Shape {
     public double getArea() {
         return seite * seite;
     }
+
+    @Override
+    public String toString() {
+        return "Square[seite:" + seite + "]";
+    }
 }

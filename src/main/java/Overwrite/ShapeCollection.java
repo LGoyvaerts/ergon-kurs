@@ -84,8 +84,12 @@ public class ShapeCollection {
 
         for (Shape s : shapes.getShapes()) {
             System.out.println("Shape: " + s);
+            System.out.println("Circumference: " + s.getCircumference());
+            System.out.println("Area: " + s.getArea() + "\n");
         }
 
-        System.out.println("Collection contains " + shapes.count() + " Shapes");
+        System.out.println("Collection contains " + shapes.count() + " Shapes\n");
+        System.out.println("Total Circumference: " + shapes.getTotalCircumference() + "\n");
+        System.out.println("Total Area: " + shapes.getTotalArea());
     }
 }
