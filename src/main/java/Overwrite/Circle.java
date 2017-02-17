@@ -1,13 +1,22 @@
 package Overwrite;
 
+import Interfaces.Polygon;
+
 /**
  * Created by gol on 08.02.2017.
  */
-public class Circle extends Shape {
+public class Circle extends Shape implements Polygon {
     double radius;
 
-    Circle(double circleRadius) {
-        radius = circleRadius;
+    public Circle(double circleRadius, Color color) {
+        this(0, 0, circleRadius);
+        this.color = color;
+    }
+
+    public Circle(double x, double y, double radius) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
     }
 
     @Override
@@ -26,7 +35,19 @@ public class Circle extends Shape {
     }
 
     @Override
+    public Box getBoundingBox() {
+        return new Box(y + radius, y - radius, x - radius, x + radius);
+    }
+
+    @Override
     public String toString() {
         return "Circle[radius:" + radius + "]";
     }
+
+    @Override
+    public int getAmountOfEdges() {
+        return 0;
+    }
+
+
 }

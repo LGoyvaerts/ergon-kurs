@@ -1,13 +1,23 @@
 package Overwrite;
 
+import Interfaces.Polygon;
+
 /**
  * Created by gol on 08.02.2017.
  */
-public class Rectangle extends Shape {
+public class Rectangle extends Shape implements Polygon {
+
     double länge;
     double breite;
 
-    Rectangle(double rechteckLänge, double rechteckBreite) {
+    public Rectangle(double rechteckLänge, double rechteckBreite, Color color) {
+        this(0, 0, rechteckLänge, rechteckBreite);
+        this.color = color;
+    }
+
+    public Rectangle(double x, double y, double rechteckLänge, double rechteckBreite) {
+        this.x = x;
+        this.y = y;
         länge = rechteckLänge;
         breite = rechteckBreite;
     }
@@ -44,7 +54,17 @@ public class Rectangle extends Shape {
     }
 
     @Override
+    public Box getBoundingBox() {
+        return new Box(y + breite, y, x, x + länge);
+    }
+
+    @Override
     public String toString() {
         return "Rectangle[länge:" + länge + " | breite: " + breite + "]";
+    }
+
+    @Override
+    public int getAmountOfEdges() {
+        return 4;
     }
 }

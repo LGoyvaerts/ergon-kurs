@@ -9,7 +9,13 @@ import java.util.List;
 public class ShapeCollection {
     private List<Shape> collection = new ArrayList<>();
 
-    ShapeCollection() {
+    double top;
+    double bottom;
+    double left;
+    double right;
+
+
+    public ShapeCollection() {
     }
 
     ShapeCollection(List<Shape> shapes) {
@@ -52,7 +58,9 @@ public class ShapeCollection {
     /**
      * 11
      * <p>
-     * Returns the sum of all shape circumferences.  *  * @return the sum of all shape circumferences in this collection.
+     * Returns the sum of all shape circumferences.
+     *
+     * @return the sum of all shape circumferences in this collection.
      */
     public double getTotalCircumference() {
         double total = 0;
@@ -63,7 +71,9 @@ public class ShapeCollection {
     }
 
     /**
-     * Returns the sum of all shape areas.  *  * @return the sum of all shape areas in this collection.
+     * Returns the sum of all shape areas.
+     *
+     * @return the sum of all shape areas in this collection.
      */
     public double getTotalArea() {
         double total = 0;
@@ -73,10 +83,22 @@ public class ShapeCollection {
         return total;
     }
 
+    public List<Double> getBottoms;
+
+    /**
+     * Returns the combined bounding box of all shape in the collection.
+     *
+     * @return a box enclosing all individual shape bounding boxes.
+     */
+
+
     public static void main(String[] args) {
-        Shape rectangle = new Circle(5);
-        Shape circle = new Rectangle(5, 4);
-        Shape square = new Square(4);
+        Color blue = new Color("blue");
+        Color red = new Color("red");
+        Color yellow = new Color("yellow");
+        Shape rectangle = new Circle(5, blue);
+        Shape circle = new Rectangle(5, 4, red);
+        Shape square = new Square(4, yellow);
         ShapeCollection shapes = new ShapeCollection();
         shapes.add(circle);
         shapes.add(rectangle);
@@ -85,11 +107,14 @@ public class ShapeCollection {
         for (Shape s : shapes.getShapes()) {
             System.out.println("Shape: " + s);
             System.out.println("Circumference: " + s.getCircumference());
-            System.out.println("Area: " + s.getArea() + "\n");
+            System.out.println("Area: " + s.getArea());
+            System.out.println("Color: " + s.getColor() + "\n");
         }
 
         System.out.println("Collection contains " + shapes.count() + " Shapes\n");
         System.out.println("Total Circumference: " + shapes.getTotalCircumference() + "\n");
         System.out.println("Total Area: " + shapes.getTotalArea());
     }
+
+
 }

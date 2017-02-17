@@ -1,13 +1,22 @@
 package Overwrite;
 
+import Interfaces.Polygon;
+
 /**
  * Created by gol on 08.02.2017.
  */
-public class Square extends Shape {
+public class Square extends Shape implements Polygon {
     double seite;
 
-    Square(double quadratSeite) {
-        seite = quadratSeite;
+    public Square(double quadratSeite, Color color) {
+        this(0, 0, quadratSeite);
+        this.color = color;
+    }
+
+    public Square(double x, double y, double seite) {
+        this.x = x;
+        this.y = y;
+        this.seite = seite;
     }
 
     @Override
@@ -26,7 +35,17 @@ public class Square extends Shape {
     }
 
     @Override
+    public Box getBoundingBox() {
+        return new Box(y + seite, y, x, x + seite);
+    }
+
+    @Override
     public String toString() {
         return "Square[seite:" + seite + "]";
+    }
+
+    @Override
+    public int getAmountOfEdges() {
+        return 4;
     }
 }
